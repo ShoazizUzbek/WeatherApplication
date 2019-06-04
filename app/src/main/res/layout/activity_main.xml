@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/weather_bg"
+    tools:context=".MainActivity">
+    <RelativeLayout
+        android:id="@+id/city_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginBottom="@dimen/margin_eight"
+        android:background="@drawable/rounded_toolbar"
+        app:layout_constraintBottom_toTopOf="@+id/scroll"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+        <TextView
+            android:id="@+id/city_title"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text="Tashkent"
+            android:textColor="#fff"
+            android:textSize="@dimen/city_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scroll"
+        app:layout_constraintTop_toBottomOf="@+id/city_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="@dimen/circle_layout"
+                android:layout_height="@dimen/circle_layout"
+                android:layout_marginStart="@dimen/margin_eight"
+                android:layout_marginTop="@dimen/margin_ten"
+                android:layout_marginEnd="@dimen/margin_eight"
+                android:layout_marginBottom="@dimen/margin_eight"
+                android:background="@drawable/circle_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.494"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.185">
+
+                <com.marcinmoskala.arcseekbar.ArcSeekBar
+                    android:id="@+id/seek_bar"
+                    android:layout_width="@dimen/seekbar_width"
+                    android:layout_height="@dimen/seekbar_height"
+                    android:layout_marginLeft="@dimen/corner_five"
+                    android:layout_marginTop="@dimen/corner_five"
+                    android:layout_marginRight="@dimen/corner_five"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:maxProgress="100"
+                    app:progressColor="@color/colorSun"
+                    app:thumb="@drawable/sun_icon" />
+
+                <TextView
+                    android:id="@+id/celsius"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_eight"
+                    android:text="37"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/celsius"
+                    app:layout_constraintBottom_toBottomOf="@+id/seek_bar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/seek_bar"
+                    app:layout_constraintVertical_bias="0.82" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_eight"
+                    android:layout_marginEnd="@dimen/sizzero"
+                    android:src="@drawable/celsius"
+                    app:layout_constraintBottom_toTopOf="@+id/condition"
+                    app:layout_constraintEnd_toEndOf="@+id/seek_bar"
+                    app:layout_constraintHorizontal_bias="0.2"
+                    app:layout_constraintStart_toEndOf="@+id/celsius"
+                    app:layout_constraintTop_toTopOf="@+id/seek_bar"
+                    app:layout_constraintVertical_bias="0.681" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_ten"
+                    android:src="@drawable/cloudy"
+                    app:layout_constraintRight_toLeftOf="@+id/condition"
+                    app:layout_constraintTop_toBottomOf="@+id/seek_bar" />
+
+                <TextView
+                    android:id="@+id/condition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="very hot"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/city_name"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/seek_bar" />
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/wind_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="@dimen/margin_ten"
+                    android:layout_marginEnd="@dimen/fourzero"
+                    app:cardBackgroundColor="#66000000"
+                    app:cardCornerRadius="@dimen/corner_five"
+                    app:cardElevation="@dimen/corner_five"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/condition">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/wind"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="20 km/h"
+                            android:textColor="#fff"
+
+                            android:textSize="@dimen/text_condition" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_ten"
+                            android:src="@drawable/wind" />
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_ten"
+                    android:text="15:01"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/city_title"
+                    android:drawableStart="@drawable/time_icon"
+                    android:drawableEnd="@drawable/time_icon_right"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/wind_lay" />
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/date_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_eight"
+                android:layout_marginTop="@dimen/margin_eight"
+                android:layout_marginEnd="@dimen/margin_eight"
+                android:layout_marginBottom="@dimen/margin_eight"
+                android:background="@drawable/time_layout_backgroudn"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+                app:layout_constraintVertical_bias="0.072">
+                <TextView
+                    android:id="@+id/date"
+                    android:textSize="@dimen/oneeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#fff"
+                    android:layout_marginStart="@dimen/twozero"
+                    android:layout_marginEnd="@dimen/twozero"
+                    android:layout_marginTop="@dimen/margin_ten"
+                    android:layout_marginBottom="@dimen/margin_ten"
+                    android:text="djskdjksjdksdjksdjksdjksdjk"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_marginTop="@dimen/onefive"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/recycler_height"
+                android:background="@drawable/infor_background"
+                android:layout_marginBottom="@dimen/onefive"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/date_layout"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"></android.support.v7.widget.RecyclerView>
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+</android.support.constraint.ConstraintLayout>

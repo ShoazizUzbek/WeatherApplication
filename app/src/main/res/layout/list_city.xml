@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_toolbar_blue"
+    app:cardCornerRadius="@dimen/corner_five">
+
+    <android.support.constraint.ConstraintLayout
+        android:background="@drawable/rounded_toolbar_blue"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/city_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_twofive"
+            android:textColor="#1C0249"
+            android:textSize="@dimen/city_name"
+            android:layout_marginTop="@dimen/margin_thirteen"
+            android:layout_marginBottom="@dimen/margin_thirteen"
+            app:layout_constraintBottom_toTopOf="@+id/weather_condition"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/weather_condition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_twofive"
+            android:layout_marginBottom="@dimen/margin_ten"
+            android:textSize="@dimen/text_condition"
+            android:textColor="#1C0249"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/city_name" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/loader"
+            style="@style/SpinKitView.Large.Wave"
+            android:layout_width="@dimen/threeten"
+            android:layout_height="@dimen/threeten"
+            app:SpinKit_Color="@color/green"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/city_name"
+            app:layout_constraintRight_toLeftOf="@+id/celsius_in_list"
+            app:layout_constraintTop_toTopOf="parent"
+          />
+
+
+
+        <TextView
+            android:id="@+id/celsius_in_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_ten"
+            android:layout_marginBottom="@dimen/margin_ten"
+            android:textColor="#000"
+            android:textSize="@dimen/oneeight"
+            android:text="someeee"
+            app:layout_constraintRight_toLeftOf="@+id/celsius_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.47" />
+
+        <ImageView
+            android:id="@+id/celsius_icon"
+            android:layout_width="@dimen/twozero"
+            android:layout_height="@dimen/twozero"
+            android:layout_marginTop="@dimen/margin_ten"
+            android:layout_marginBottom="@dimen/margin_eight"
+            android:src="@drawable/celsius"
+            android:layout_marginEnd="@dimen/margin_ten"
+            app:layout_goneMarginBottom="@dimen/margin_ten"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>
