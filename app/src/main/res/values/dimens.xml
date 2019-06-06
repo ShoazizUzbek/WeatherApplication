@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="margin_eight">8dp</dimen>
-    <dimen name="city_title">25sp</dimen>
+    <dimen name="city_title">23sp</dimen>
     <dimen name="corner_five">5dp</dimen>
     <dimen name="city_name">19sp</dimen>
     <dimen name="margin_thirteen">13dp</dimen>
